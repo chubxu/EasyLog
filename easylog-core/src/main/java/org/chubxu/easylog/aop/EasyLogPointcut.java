@@ -1,8 +1,6 @@
 package org.chubxu.easylog.aop;
 
 import org.chubxu.easylog.annotation.ELog;
-import org.springframework.aop.ClassFilter;
-import org.springframework.aop.MethodMatcher;
 import org.springframework.aop.support.StaticMethodMatcherPointcut;
 
 import java.lang.annotation.Annotation;
@@ -14,9 +12,9 @@ public class EasyLogPointcut extends StaticMethodMatcherPointcut {
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
         Annotation[] annotations = method.getAnnotations();
-        if (Objects.nonNull(annotations) && annotations.length > 0) {
+        if (Objects.nonNull(annotations)) {
             for (Annotation annotation : annotations) {
-                if (ELog.class.getName().equalsIgnoreCase(annotations.getClass().getName())) {
+                if (ELog.class.getName().equalsIgnoreCase(annotation.annotationType().getName())) {
                     return true;
                 }
             }

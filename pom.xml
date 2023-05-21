@@ -22,6 +22,7 @@
         <springboot.version>2.5.14</springboot.version>
 
         <slf4j.version>2.0.7</slf4j.version>
+        <fastjson2>2.0.32</fastjson2>
     </properties>
 
     <dependencyManagement>
@@ -49,6 +50,11 @@
                 <version>${slf4j.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
